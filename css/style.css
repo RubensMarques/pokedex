@@ -76,7 +76,7 @@ main{
 
 .buttons{
     position: absolute;
-    bottom: 10%;
+    bottom: 18%;
     left: 50%;
     width: 65%;
     transform: translate(-57%, 0);
@@ -96,6 +96,26 @@ main{
 }
 
 .button:active{
+    box-shadow: inset -4px 4px 0 #222;
+    font-size: 0.9rem;
+}
+
+.btn-info
+{
+    position: absolute;
+    bottom: 8.5%;
+    right: 25%;
+    width: 12%;
+    height: 8%;
+    border-radius: 100px;
+    font-size: clamp(8px, 5vw, 1rem);
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    background-color: rgb(73, 67, 67);
+    color: #fff;
+    
+}
+
+.btn-info:active{
     box-shadow: inset -4px 4px 0 #222;
     font-size: 0.9rem;
 }

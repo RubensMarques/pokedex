@@ -5,6 +5,7 @@ const form = document.querySelector('.form');
 const input = document.querySelector('.input_search');
 const prev = document.querySelector('.btn-prev');
 const next = document.querySelector('.btn-next');
+const info = document.querySelector('.btn-info');
 
 let searchPokemon = 1;
 const fetchPokemon = async (pokemon) =>{
@@ -26,7 +27,14 @@ const renderPokemon = async (pokemon) =>{
         pokemonName.innerHTML = 'Loading...'
         pokemonNumber.innerHTML = '';
         const data = await fetchPokemon(pokemon);
-        pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        if(data.id < 649)
+        {
+            pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        }
+        else{
+            pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
+        }
+        
         pokemonName.innerHTML = data.name;
         pokemonNumber.innerHTML = data.id + " - ";
         searchPokemon = data.id;
@@ -39,7 +47,12 @@ const renderPokemon = async (pokemon) =>{
     }
     
 }
-renderPokemon(searchPokemon)
+
+const dataInfo = async(pokemon) =>{
+    const data = await fe
+
+}
+renderPokemon(searchPokemon);
 
 form.addEventListener('submit', (event) =>{
     event.preventDefault();
@@ -54,6 +67,10 @@ prev.addEventListener('click', () =>{
 next.addEventListener('click', () =>{
     searchPokemon++;
     renderPokemon(searchPokemon);
+})
+
+info.addEventListener('click', () =>{
+    
 })
 
 function clean(){
