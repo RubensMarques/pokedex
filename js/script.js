@@ -6,6 +6,10 @@ const input = document.querySelector('.input_search');
 const prev = document.querySelector('.btn-prev');
 const next = document.querySelector('.btn-next');
 const info = document.querySelector('.btn-info');
+const infoPokemon = document.querySelector('.arena')
+const imgArena = document.querySelector('.box-stats');
+const imgStats = document.querySelector('.image-stats');
+const type = document.querySelector('.text-stats');
 
 let searchPokemon = 1;
 const fetchPokemon = async (pokemon) =>{
@@ -30,9 +34,18 @@ const renderPokemon = async (pokemon) =>{
         if(data.id < 649)
         {
             pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+
+            imgStats.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
+            
+            type.innerHTML = 'Type: ' + data['types']['0']['type']['name'];
+
         }
         else{
             pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
+
+            imgStats.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
+
+            type.innerHTML = 'Type: ' + data['types']['0']['type']['name'];
         }
         
         pokemonName.innerHTML = data.name;
@@ -48,16 +61,23 @@ const renderPokemon = async (pokemon) =>{
     
 }
 
-const dataInfo = async(pokemon) =>{
-    const data = await fe
 
-}
 renderPokemon(searchPokemon);
 
 form.addEventListener('submit', (event) =>{
     event.preventDefault();
-    renderPokemon(input.value.toLowerCase().trim());
+    if(input.value < 1 || input.value > 898)
+    {
+        clean();
+        pokemonImg.style.display = 'none';
+        pokemonName.innerHTML = "not found"
+    }
+    else{
+        renderPokemon(input.value.toLowerCase().trim());
+    }
 })
+    
+    
 
 prev.addEventListener('click', () =>{
     searchPokemon == 1 ? searchPokemon = 1 : searchPokemon--;
@@ -65,12 +85,21 @@ prev.addEventListener('click', () =>{
 })
 
 next.addEventListener('click', () =>{
-    searchPokemon++;
+    searchPokemon == 898 ? searchPokemon = 898 : searchPokemon++;
     renderPokemon(searchPokemon);
 })
 
+let clickedInfo = false
 info.addEventListener('click', () =>{
-    
+    if(!clickedInfo)
+    {
+        imgArena.style.display = "flex";    
+        clickedInfo = true;
+    }
+    else{
+        imgArena.style.display = "none";
+        clickedInfo = false;
+    }
 })
 
 function clean(){
