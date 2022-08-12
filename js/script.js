@@ -43,6 +43,8 @@ const renderPokemon = async (pokemon) =>{
         imgStats.style.display = 'block';
         pokemonName.innerHTML = 'Loading...';
         pokemonNumber.innerHTML = '';
+        pokemonImg.src = '';
+        imgStats.src = '';
         const data = await fetchPokemon(pokemon);
         
         element(data);
@@ -154,18 +156,20 @@ function clean(){
 function element(data)
 {
     if(data.id < 649){
-
+        
         pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        
         imgStats.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
-
+        
     }
     else{
-
+        
         pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
         imgStats.src = data['sprites']['versions']['generation-v']['black-white']['front_default'];
-
+        
     }
 
+    
     type.innerHTML = 'Type: ' + data['types']['0']['type']['name'];
     hp.innerHTML = 'hp: ' + data['stats'][0]['base_stat'];
     attack.innerHTML = 'attack: ' + data['stats'][1]['base_stat'];
@@ -173,12 +177,11 @@ function element(data)
     specialAttack.innerHTML = 'special-atk: ' + data['stats'][3]['base_stat'];
     specialDefense.innerHTML = 'special-def: ' + data['stats'][4]['base_stat'];
     speed.innerHTML = 'speed: ' + data['stats'][5]['base_stat'];
-    
     barHp.style.width = `${data['stats'][0]['base_stat']/2.7}%`;
     barAttack.style.width = `${data['stats'][1]['base_stat']/2.7}%`;
     barDefense.style.width = `${data['stats'][2]['base_stat']/2.7}%`;
     barSpecialAttack.style.width = `${data['stats'][3]['base_stat']/2.7}%`;
     barSpecialDefense.style.width = `${data['stats'][4]['base_stat']/2.7}%`;
     barSpeed.style.width = `${data['stats'][5]['base_stat']/2.7}%`;
-
+    
 }
