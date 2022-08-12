@@ -14,8 +14,6 @@
 <body>
     <main>
         
-        <div class="margin"></div>
-        
         <h1 class="pokemon_data">
             <span class="pokemon_number"></span>
             <span class="pokemon_name"></span>
@@ -45,16 +43,58 @@
         <img src="./img/pokedex.png" alt="pokedex" class="pokedex">
 
         <div class="box-stats">
-            <img src="./img/arena.png" border="5" alt="arena" class="img-arena"> 
+            <img defer src="./img/arena.png" border="5" alt="arena" class="img-arena"> 
             <div class="stats-img"> 
                 <img src="#" alt="" class="image-stats">
             </div>
-            <div class="stats">
-                <span class="text-stats"></span>
-            </div>
+            <ul class="stats">
+
+                <li  class="type">type: </li>
+
+            
+
+                <li id='hp' class="text-stats">hp: </li>
+                
+                <div class="bar-div" >
+                    <div id="bar-hp" class="perc-div"></div>
+                </div>
+
+                <li id='attack' class="text-stats">attack: </li>
+
+                <div class="bar-div" >
+                    <div id="bar-attack" class="perc-div"></div>
+                </div>
+
+                <li id='defense' class="text-stats">defense: </li>
+
+                <div class="bar-div" >
+                    <div id="bar-defense" class="perc-div"></div>
+                </div>
+
+                <li id='special-attack' class="text-stats">special-attack: </li>
+
+                <div class="bar-div" >
+                    <div id="bar-special-attack" class="perc-div"></div>
+                </div>
+
+                <li id='special-defense' class="text-stats">special-defense: </li>
+
+                <div class="bar-div" >
+                    <div id="bar-special-defense" class="perc-div"></div>
+                </div>
+
+                <li id='speed' class="text-stats">speed: </li>
+
+                <div class="bar-div" >
+                    <div id="bar-speed" class="perc-div"></div>
+                </div>
+
+                
+            </ul>
             
         </img>
         </div>
+        
     </main>
 
     
