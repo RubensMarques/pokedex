@@ -146,7 +146,6 @@
         top: 50%;
         transform: translate(-50%, -50%);
         filter: blur(0.4px);
-        cursor:alias;
     }
 
     .stats{
